@@ -6,12 +6,13 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:53:06 by samartin          #+#    #+#             */
-/*   Updated: 2025/09/12 14:25:03 by samartin         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:10:11 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_HPP
 # define MAIN_HPP
+# include <iostream>
 
 # ifndef TSTL
 #  define TSTL "\e[32m"

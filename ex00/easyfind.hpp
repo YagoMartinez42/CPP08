@@ -6,15 +6,24 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:51:30 by samartin          #+#    #+#             */
-/*   Updated: 2025/09/24 20:23:25 by samartin         ###   ########.fr       */
+/*   Updated: 2025/09/25 15:33:33 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
+# include <iostream>
+
 template < typename T >
-const int& easyfind(const T& a, const int b)
+int* easyfind(const T& a, const int b)
 {
-	//comprobar tipo?
-    //arrojar excepción si no enconrado
-    //devolver referencia al elemento e imprimir mensaje si encontrado
-    return (0);
+    typename T::iterator it;
+
+    it = std::find(a.begin(), a.end(), b);
+    if (it == a.end())
+        throw std::exception();
+    std::cout << "Found " << *it << " value in container." << std::endl;
+    return (it);
 }
+
+#endif
