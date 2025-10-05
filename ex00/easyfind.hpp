@@ -18,7 +18,7 @@
 template < typename T >
 int easyfind(const T& a, const int b)
 {
-    typename T::iterator it;
+    typename T::const_iterator it;
 
     it = std::find(a.begin(), a.end(), b);
     if (it == a.end())
