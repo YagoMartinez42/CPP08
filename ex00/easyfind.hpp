@@ -13,9 +13,10 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 # include <iostream>
+# include <algorithm>
 
 template < typename T >
-int* easyfind(const T& a, const int b)
+int easyfind(const T& a, const int b)
 {
     typename T::iterator it;
 
@@ -23,7 +24,7 @@ int* easyfind(const T& a, const int b)
     if (it == a.end())
         throw std::exception();
     std::cout << "Found " << *it << " value in container." << std::endl;
-    return (it);
+    return (std::distance(a.begin(), it));
 }
 
 #endif

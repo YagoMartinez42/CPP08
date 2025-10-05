@@ -25,14 +25,14 @@ int main(void) {
 	std::cout << TSTH << "=======================" << TSTR << std::endl;
 	{
 		std::list<int> lst;
-		int* item;
+		int distance;
 		int target = 22;
 
 		std::cout << TSTL << "Using Easy find on empty list" << TSTR << std::endl;
 		try
 		{
-			item = easyfind(lst, target);
-			std::cout << "Target `" << *item << "` found (won't happen)." << std::endl;
+			distance = easyfind(lst, target);
+			std::cout << "Target `" << target << "` found (won't happen)." << std::endl;
 		}
 		catch(const std::exception& e)
 		{
@@ -44,8 +44,8 @@ int main(void) {
 		std::cout << TSTL << "Using Easy find on 3-element list." << TSTR << std::endl;
 		try
 		{
-			item = easyfind(lst, target);
-			std::cout << "Target `" << *item << "` found." << std::endl;
+			distance = easyfind(lst, target);
+			std::cout << "Target `" << target << "` found on element count " << distance + 1 << std::endl;
 		}
 		catch(const std::exception& e)
 		{
