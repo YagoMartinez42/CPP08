@@ -14,14 +14,14 @@
 # define MAIN_HPP
 # include <iostream>
 
-# ifndef TSTL
+# ifndef TSTL // Test Line
 #  define TSTL "\e[32m"
 # endif
-# ifndef TSTH
+# ifndef TSTH // Test Header
 #  define TSTH "\e[33m\e[44m"
 # endif
-# ifndef TSTR
-#  define TSTR "\e[00m"
+# ifndef TSTR // Test Reset
+#  define TSTR "\e[00m\n"
 # endif
 
 #include <iostream>

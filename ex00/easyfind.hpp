@@ -16,15 +16,15 @@
 # include <algorithm>
 
 template < typename T >
-int easyfind(const T& a, const int b)
+typename T::const_iterator easyfind(const T& a, const int b)
 {
     typename T::const_iterator it;
 
     it = std::find(a.begin(), a.end(), b);
     if (it == a.end())
-        throw std::exception();
-    std::cout << "Found " << *it << " value in container." << std::endl;
-    return (std::distance(a.begin(), it));
+        throw std::out_of_range("Value not found");
+    std::cout << "Found " << b << " value in container." << std::endl;
+    return (it);
 }
 
 #endif

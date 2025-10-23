@@ -20,19 +20,19 @@ int main(void) {
 	//Probar dos o tres tipos distintos de container
 	//Probar cero elementos, encontrar elemento que existe y elemento que no, probar con container que no tiene enteros
 	std::cout << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
-	std::cout << TSTH << "|   Tests with list   |" << TSTR << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
+	std::cout << TSTH << "=======================" << TSTR;
+	std::cout << TSTH << "|   Tests with list   |" << TSTR;
+	std::cout << TSTH << "=======================" << TSTR;
 	{
 		std::list<int> lst;
-		int distance;
+		std::list<int>::const_iterator it;
 		int target = 22;
 
-		std::cout << TSTL << "Using Easy find on empty list" << TSTR << std::endl;
+		std::cout << TSTL << "Using Easy find on empty list" << TSTR;
 		try
 		{
-			distance = easyfind(lst, target);
-			std::cout << "Target `" << target << "` found (won't happen)." << std::endl;
+			it = easyfind(lst, target);
+			std::cout << TSTL << "Found " << *it << " in list. (Won't happen)" << TSTR;
 		}
 		catch(const std::exception& e)
 		{
@@ -41,42 +41,47 @@ int main(void) {
 		lst.push_back(-1);
 		lst.push_back(22);
 		lst.push_back(33);
-		std::cout << TSTL << "Using Easy find on 3-element list." << TSTR << std::endl;
+		std::cout << TSTL << "Using Easy find on 3-element list." << TSTR;
 		try
 		{
-			distance = easyfind(lst, target);
-			std::cout << "Target `" << target << "` found on element count " << distance + 1 << std::endl;
+			it = easyfind(lst, target);
+			std::cout << TSTL << "Found " << *it << " in list." << TSTR;
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
-		
-	}
-/*	std::cout << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
-	std::cout << TSTH << "|    Tests with map   |" << TSTR << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
-	{
-		std::map<std::string, int> mmap;
-		std::map<std::string, std::string> pamm;
-		mmap["one"] = 1;
-		mmap["minus three"] = -3;
-		mmap["twelve"] = 12;
-		pamm["one"] = "uno";
-		pamm["minus three"] = "menos tres";
-		pamm["twelve"] = "doce";
 	}
 	std::cout << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
-	std::cout << TSTH << "|  Tests with vector  |" << TSTR << std::endl;
-	std::cout << TSTH << "=======================" << TSTR << std::endl;
+	std::cout << TSTH << "=======================" << TSTR;
+	std::cout << TSTH << "|  Tests with vector  |" << TSTR;
+	std::cout << TSTH << "=======================" << TSTR;
 	{
+		std::vector<int>::const_iterator it;
 		std::vector<int> vec;
 		vec.push_back(4);
 		vec.push_back(6);
 		vec.push_back(-11);
+		std::cout << TSTL << "Using Easy find on 3-element vector." << TSTR;
+		try
+		{
+			it = easyfind(vec, 5);
+			std::cout << TSTL << "Found " << *it << " in vector (Won't happen)." << TSTR;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		try
+		{
+			it = easyfind(vec, -11);
+			std::cout << TSTL << "Found " << *it << " in vector." << TSTR;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
-*/
+	std::cout << std::endl;
 	return (0);
 }
