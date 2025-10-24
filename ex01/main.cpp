@@ -15,16 +15,16 @@
 
 int main(void) {
 	std::cout << std::endl;
-	std::cout << TSTH << "===========================" << TSTR << std::endl;
-	std::cout << TSTH << "|    Test from subject    |" << TSTR << std::endl;
-	std::cout << TSTH << "===========================" << TSTR << std::endl;
+	std::cout << TSTH << "===========================" << TSTR;
+	std::cout << TSTH << "|    Test from subject    |" << TSTR;
+	std::cout << TSTH << "===========================" << TSTR;
 	{
 
 	}
 	std::cout << std::endl;
-	std::cout << TSTH << "===========================================================" << TSTR << std::endl;
-	std::cout << TSTH << "|  More tests  |" << TSTR << std::endl;
-	std::cout << TSTH << "===========================================================" << TSTR << std::endl;
+	std::cout << TSTH << "===========================================================" << TSTR;
+	std::cout << TSTH << "|  More tests  |" << TSTR;
+	std::cout << TSTH << "===========================================================" << TSTR;
 	{
 
 	}
