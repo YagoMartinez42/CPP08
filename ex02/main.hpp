@@ -20,7 +20,7 @@
 #  define TSTH "\e[33m\e[44m"
 # endif
 # ifndef TSTR
-#  define TSTR "\e[00m"
+#  define TSTR "\e[00m\n"
 # endif
 
 #include <iostream>
