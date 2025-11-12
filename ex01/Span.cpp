@@ -6,7 +6,7 @@
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 13:02:43 by samartin          #+#    #+#             */
-/*   Updated: 2025/10/24 14:50:46 by samartin         ###   ########.fr       */
+/*   Updated: 2025/11/12 12:05:39 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,34 +34,23 @@ void Span::addNumber(int n)
 	else
 		throw std::out_of_range("Span is full");
 }
-<<<<<<< HEAD:ex01/span.cpp
-void Span::addRange(const std::list<int> range)
-{
-	if (range.size() + this->size() > this->_maxSize)
-		throw std::out_of_range("Span has no room for the aditional range");
-=======
 
 void Span::addRange(const std::list<int> range)
 {
 	if (range.size() + this->size() > this->_maxSize)
-		throw std::out_of_range("Provided range doesn't fit into the span");
->>>>>>> 04ceac6107b161213924912623c7abd8cf46bd87:ex01/Span.cpp
+		throw std::out_of_range("Span has no room for the aditional range");
+
 	this->insert(this->end(), range.begin(), range.end());
 }
 
 void Span::addRange(const std::vector<int> range)
 {
 	if (range.size() + this->size() > this->_maxSize)
-<<<<<<< HEAD:ex01/span.cpp
+
 		throw std::out_of_range("Span has no room for the aditional range");
 	this->insert(this->end(), range.begin(), range.end());
 }
-=======
-		throw std::out_of_range("Provided range doesn't fit into the span");
-	this->insert(this->end(), range.begin(), range.end());
-}
 
->>>>>>> 04ceac6107b161213924912623c7abd8cf46bd87:ex01/Span.cpp
 unsigned int Span::shortestSpan() const
 {
 	std::vector<int> sorted(*this);
