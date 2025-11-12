@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samartin <samartin@student.42.fr>          #+#  +:+       +#+        */
+/*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-23 13:02:43 by samartin          #+#    #+#             */
-/*   Updated: 2025-10-23 13:02:43 by samartin         ###   ########.fr       */
+/*   Created: 2025/10/23 13:02:43 by samartin          #+#    #+#             */
+/*   Updated: 2025/10/24 14:50:46 by samartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,19 @@ void Span::addNumber(int n)
 	else
 		throw std::out_of_range("Span is full");
 }
-void Span::addRange(const std::list<int> range){ (void)range;}
-void Span::addRange(const std::vector<int> range){ (void)range;}
+void Span::addRange(const std::list<int> range)
+{
+	if (range.size() + this->size() > this->_maxSize)
+		throw std::out_of_range("Span has no room for the aditional range");
+	this->insert(this->end(), range.begin(), range.end());
+}
+
+void Span::addRange(const std::vector<int> range)
+{
+	if (range.size() + this->size() > this->_maxSize)
+		throw std::out_of_range("Span has no room for the aditional range");
+	this->insert(this->end(), range.begin(), range.end());
+}
 unsigned int Span::shortestSpan() const
 {
 	std::vector<int> sorted(*this);
