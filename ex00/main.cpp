@@ -12,13 +12,43 @@
 
 #include "main.hpp"
 #include "easyfind.hpp"
+#include <deque>
 #include <list>
-#include <map>
 #include <vector>
 
 int main(void) {
-	//Probar dos o tres tipos distintos de container
-	//Probar cero elementos, encontrar elemento que existe y elemento que no, probar con container que no tiene enteros
+	std::cout << std::endl;
+	std::cout << TSTH << "=======================" << TSTR;
+	std::cout << TSTH << "|  Tests with deque   |" << TSTR;
+	std::cout << TSTH << "=======================" << TSTR;
+	{
+		std::deque<int>::const_iterator it;
+		std::deque<int> quee;
+		quee.push_back(99);
+		quee.push_back(5);
+		quee.push_back(-9);
+		quee.push_back(1);
+		std::cout << TSTL << "Using Easy find on 4-element int deque which doesn't contain the value we are searching for." << TSTR;
+		try
+		{
+			it = easyfind(quee, 55);
+			std::cout << TSTL << "Found " << *it << " in deque (Won't happen)." << TSTR;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		std::cout << TSTL << "Using Easy find on 4-element int deque." << TSTR;
+		try
+		{
+			it = easyfind(quee, 99);
+			std::cout << TSTL << "Found " << *it << " in deque." << TSTR;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	std::cout << std::endl;
 	std::cout << TSTH << "=======================" << TSTR;
 	std::cout << TSTH << "|   Tests with list   |" << TSTR;
@@ -62,7 +92,7 @@ int main(void) {
 		vec.push_back(4);
 		vec.push_back(6);
 		vec.push_back(-11);
-		std::cout << TSTL << "Using Easy find on 3-element vector." << TSTR;
+		std::cout << TSTL << "Using Easy find on 3-element vector which doesn't contain the value we are searching for." << TSTR;
 		try
 		{
 			it = easyfind(vec, 5);
@@ -72,6 +102,7 @@ int main(void) {
 		{
 			std::cerr << e.what() << std::endl;
 		}
+		std::cout << TSTL << "Using Easy find on 3-element vector." << TSTR;
 		try
 		{
 			it = easyfind(vec, -11);

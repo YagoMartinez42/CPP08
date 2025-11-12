@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samartin <samartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "span.hpp"
+#include "Span.hpp"
 
 Span::Span() : _maxSize(0) {}
 Span::Span(const Span& orig) : std::vector<int>(orig), _maxSize(orig._maxSize) {}
@@ -34,19 +34,34 @@ void Span::addNumber(int n)
 	else
 		throw std::out_of_range("Span is full");
 }
+<<<<<<< HEAD:ex01/span.cpp
 void Span::addRange(const std::list<int> range)
 {
 	if (range.size() + this->size() > this->_maxSize)
 		throw std::out_of_range("Span has no room for the aditional range");
+=======
+
+void Span::addRange(const std::list<int> range)
+{
+	if (range.size() + this->size() > this->_maxSize)
+		throw std::out_of_range("Provided range doesn't fit into the span");
+>>>>>>> 04ceac6107b161213924912623c7abd8cf46bd87:ex01/Span.cpp
 	this->insert(this->end(), range.begin(), range.end());
 }
 
 void Span::addRange(const std::vector<int> range)
 {
 	if (range.size() + this->size() > this->_maxSize)
+<<<<<<< HEAD:ex01/span.cpp
 		throw std::out_of_range("Span has no room for the aditional range");
 	this->insert(this->end(), range.begin(), range.end());
 }
+=======
+		throw std::out_of_range("Provided range doesn't fit into the span");
+	this->insert(this->end(), range.begin(), range.end());
+}
+
+>>>>>>> 04ceac6107b161213924912623c7abd8cf46bd87:ex01/Span.cpp
 unsigned int Span::shortestSpan() const
 {
 	std::vector<int> sorted(*this);
@@ -74,5 +89,5 @@ unsigned int Span::longestSpan() const
 		throw std::out_of_range("At least 2 elements needed to get a span value");
 	min = std::min_element(this->begin(), this->end());
 	max = std::max_element(this->begin(), this->end());
-	return(max - min);
+	return(*max - *min);
 }
